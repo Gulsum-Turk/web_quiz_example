@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+
+<div class="container mt-sm-5 my-1">
+    <div class="question ml-sm-5 pl-sm-5 pt-2">
+        <form action="/cevap" method="post">
+       
+            <h2>Sınav Adı:{{ sinav.adi }}</h2>
+            {% for soru in sinav.sorular %}
+                <div class="py-2 h5 soru"><b>Soru: {{ soru.icerik }}</b></div>
+                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                    {% for secenek in cevap[soru] %}
+                        <label class="options">
+                            <input type="radio" name="soru{{ soru.id }}" value="{{ secenek }}">
+                            {{ secenek }}
+                            <span class="checkmark"></span>
+                        </label>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+     
+    </div>
+    <div class="d-flex align-items-center pt-3">
+        <div class="ml-auto mr-sm-5">
+            <input type="submit" class="btn btn-primary" value="Gönder">  
+        </div>
+    </form>
+    </div>
+</div>
+

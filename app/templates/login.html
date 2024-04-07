@@ -1,0 +1,41 @@
+{% include 'headerMain.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+
+<div class="container">  
+<div class="container"> 
+{% if error %}
+<p style="color: red;">{{ error }}</p>
+{% endif %}
+{% if message%}
+<p style="color: rgb(0, 255, 13);">{{ error }}</p>
+{% endif %}
+</div>
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Giriş Alanı</h3>
+                    <p>Aşağıdaki alanları doldurun</p>
+                    <form class="requires-validation" action="{{ url_for('login') }}" method="post">
+                        <div class="col-md-12">
+                            <label for="name">Username:</label>
+                            <input type="text" id="name" name="name"><br><br>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password"><br><br>
+                        </div>
+
+                        <input type="submit" value="Login">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</div>
+
+{% include 'footer.html' %}

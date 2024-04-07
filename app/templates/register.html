@@ -1,0 +1,47 @@
+{% include 'headerMain.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+
+
+<div class="container">
+  <div class="container">
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+  </div>
+  <div class="form-body">
+    <div class="row">
+      <div class="form-holder">
+        <div class="form-content">
+          <div class="form-items">
+            <h3>Kayıt olun</h3>
+            <p>Aşağıdaki alanları doldurun</p>
+            <form class="requires-validation" action="" method="POST">
+              <div class="col-md-12">
+                <label for="name" class="form-label">Adınız</label>
+                <input type="text" class="form-control" id="nickname" name="name">
+              </div>
+              <div class="col-md-12">
+                <label for="username" class="form-label">Kullanıcı Adı</label>
+                <input type="text" class="form-control" id="username" name="username">
+              </div>
+              <div class="col-md-12">
+                <label for="exampleInputPassword1" class="form-label">Parola</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+              </div>
+              <div class="col-md-12">
+                <label for="exampleInputPassword2" class="form-label">Parola Tekrar</label>
+                <input type="password" class="form-control" id="exampleInputPassword2" name="password2">
+              </div>
+              <div class="form-button mt-3">
+                <button id="submit" type="submit" class="btn btn-primary">Gönder</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</div>
+
+{% include 'footer.html' %}

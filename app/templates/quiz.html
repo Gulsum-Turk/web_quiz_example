@@ -1,0 +1,62 @@
+{% include 'header.html'%}
+<div class="container text-center"> 
+    <h1>Sınav Oluşturma Sayfası</h1>
+    <form action="/sinav_ekle" method="post">
+        <label for="sınav_adı">Sınav Adı:</label>
+        <input type="text" id="sınav_adı" name="sınav_adı"><br><br>
+        <label for="sınav_aciklama">Sınav Açıklaması:</label><br>
+        <textarea id="sınav_aciklama" name="sınav_aciklama" rows="4" cols="50"></textarea><br><br>
+        
+        
+        
+        <h2>Sorular</h2>
+        <div id="sorular">
+            <div class="soru row">
+                <label for="soru1">Soru 1:</label>
+                <input type="text" id="soru1" name="soru1" class=""><br><br>
+                <label for="dogru_cevap1">Doğru Cevap:</label>
+                <input type="text" id="dogru_cevap1" name="dogru_cevap1"><br><br>
+                <label for="secenek1_1">Seçenek 1:</label>
+                <input type="text" id="secenek1_1" name="secenek1_1">
+                <label for="secenek1_2">Seçenek 2:</label>
+                <input type="text" id="secenek1_2" name="secenek1_2">
+                <label for="secenek1_3">Seçenek 3:</label>
+                <input type="text" id="secenek1_3" name="secenek1_3">
+                <label for="secenek1_4">Seçenek 4:</label>
+                <input type="text" id="secenek1_4" name="secenek1_4"><br>
+            </div>
+            <!-- Buraya kadar olan divi JS kullanarak dinamik olarak çoğaltabilirsiniz -->
+        </div>
+        <button type="button" onclick="addQuestion()" class="btn btn-primary mt-4">Soru Ekle</button><br><br>
+
+        <input type="submit" value="Sınavı Oluştur" class="btn btn-success btn-lg btn-block">
+    </form>
+</div>
+
+    <script>
+        let soruSayısı = 1;
+
+        function addQuestion() {
+            soruSayısı++;
+            let div = document.createElement('div');
+            div.classList.add('soru');
+
+            div.innerHTML = `
+                <label for="soru${soruSayısı}">Soru ${soruSayısı}:</label>
+                <input type="text" id="soru${soruSayısı}" name="soru${soruSayısı}"><br><br>
+                <label for="dogru_cevap${soruSayısı}">Doğru Cevap:</label>
+                <input type="text" id="dogru_cevap${soruSayısı}" name="dogru_cevap${soruSayısı}"><br><br>
+                <label for="secenek${soruSayısı}_1">Seçenek 1:</label>
+                <input type="text" id="secenek${soruSayısı}_1" name="secenek${soruSayısı}_1">
+                <label for="secenek${soruSayısı}_2">Seçenek 2:</label>
+                <input type="text" id="secenek${soruSayısı}_2" name="secenek${soruSayısı}_2">
+                <label for="secenek${soruSayısı}_3">Seçenek 3:</label>
+                <input type="text" id="secenek${soruSayısı}_3" name="secenek${soruSayısı}_3">
+                <label for="secenek${soruSayısı}_4">Seçenek 4:</label>
+                <input type="text" id="secenek${soruSayısı}_4" name="secenek${soruSayısı}_4"><br><br>
+            `;
+
+            document.getElementById('sorular').appendChild(div);
+        }
+    </script>
+{% include 'footer.html' %}

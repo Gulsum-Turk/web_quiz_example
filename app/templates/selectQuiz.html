@@ -1,0 +1,26 @@
+
+{% include "header.html" %}
+<div class="container d-flex">  
+{% for sinav in sinavlar %}
+
+<div class="card m-4" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{sinav.adi}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">Sınav id: {{sinav.id}}</h6>
+      <p class="card-text">{{sinav.aciklama}}</p>
+      <a href="{{ url_for('sinav_ol', sinav_id=sinav.id) }}" class="card-link btn btn-outline-dark ">Sınava Başla</a>
+     
+   
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<div class="container text-center"> 
+{% if username=="admin" %}
+  <form action="{{ url_for('sinav_sil')}}" method="post">
+    <input type="number" name="number" id="" placeholder="Id giriniz">
+    <input type="submit" name="" id="" value="Sil">
+  </form>
+  {% endif %}
+</div>
+  {% include "footer.html" %}

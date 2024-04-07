@@ -1,0 +1,46 @@
+{% if logged_in %}
+{% include 'header.html' %}
+
+{% else %}
+{% include 'headerMain.html' %}
+{% endif %}
+
+
+    <main class="flex-shrink-0">
+        <div class="container">
+            <div class="dropdown mb-2">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Şehir Seçiniz
+                </button>
+               {% include 'date.html'%}
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item active" href="#">İstanbul</a></li>
+                    <li><a class="dropdown-item" href="">Ankara</a></li>
+                    <li><a class="dropdown-item" href="izmir">İzmir</a></li>
+                    <li><a class="dropdown-item" href="antalya">Antalya</a></li>
+                    <li><a class="dropdown-item" href="bursa">Bursa</a></li>
+                    <li><a class="dropdown-item" href="diyarbakir">Diyarbakır</a></li>
+                </ul>
+            </div>
+            <div class="weather" id="weatherArea">
+                <a class="weatherwidget-io" href="https://forecast7.com/tr/41d0128d98/istanbul/" data-label_1="İSTANBUL"
+                    data-label_2="Hava Durumu" data-theme="original">İSTANBUL Hava Durumu</a>
+                <script>
+                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+                </script>
+            </div>
+
+        </div>
+    </main>
+    <div class="container ">
+        {% include 'leaderTable.html' %}
+      
+        {% include 'card.html'%}
+    </div>
+
+
+    {% include 'footer.html'%}
+   
+
+   

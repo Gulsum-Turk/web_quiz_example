@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="{{url_for('static',filename='css/leaderTable.css')}}">
+
+<div class="table-container">
+
+	<div class="table">
+		<h3>Lider Tablosu</h3>
+
+		<div class="table-header">
+			<div class="header__item"><a id="name" class="filter__link" href="#">isim</a></div>
+			<div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Puan</a></div>
+			
+		</div>
+		<div class="table-content">
+			{% for user in users %}
+			<div class="table-row">
+				<div class="table-data">{{user.adi}}</div>
+				<div class="table-data">{{user.puan}}</div>
+				
+			</div>
+			{% endfor %}
+		
+		</div>
+	</div>
+</div>
+
+<script src="{{url_for('static', filename='js/leaderTable.js')}}"></script>
