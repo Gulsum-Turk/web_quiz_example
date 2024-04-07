@@ -11,7 +11,7 @@
 ### anasayfa içeriği
 
 - header -> menü
-- hava durumu göstergesi -> şekir seçilebilir
+- hava durumu göstergesi -> şehir seçilebilir
 - tarih ve gün göstergesi
 - lider tablosu
 - resim ve yazı
